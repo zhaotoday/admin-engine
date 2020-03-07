@@ -37,8 +37,8 @@
 import Vue from "vue";
 import { Component } from "vue-property-decorator";
 import consts from "@/utils/consts";
-import helpers from "@/utils/helpers/base";
-import restHelpers from "@/utils/helpers/rest-helpers";
+import helpers from "../../../../utils/helpers";
+import auth from "../../../../utils/auth";
 
 @Component({
   props: {
@@ -67,7 +67,7 @@ export default class ChildUploader extends Vue {
   uploadList = [];
 
   get headers() {
-    return restHelpers.getHeaders();
+    return auth.getHeaders();
   }
 
   get defaultFileList() {
