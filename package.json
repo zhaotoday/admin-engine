@@ -1,6 +1,6 @@
 {
   "name": "view-ui-admin",
-  "version": "0.0.8",
+  "version": "0.0.10",
   "description": "",
   "main": "index.js",
   "scripts": {},
@@ -10,10 +10,12 @@
   "dependencies": {
     "array-to-tree": "^3.3.2",
     "core-js": "^3.6.5",
+    "dayjs": "^1.8.28",
     "jt-editor": "^1.0.4",
     "jt-helpers": "0.0.8",
     "jt-rest": "0.0.12",
     "lr-editor": "^1.0.1",
+    "sass-utils": "^1.0.23",
     "view-design": "^4.2.0",
     "vod-js-sdk-v6": "^1.4.8",
     "vue-property-decorator": "^9.0.0",
