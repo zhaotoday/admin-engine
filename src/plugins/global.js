@@ -1,7 +1,4 @@
 import time from "jt-time";
-import consts from "../utils/consts";
-import helpers from "../utils/helpers";
-import auth from "../utils/auth";
 import GlobalMixin from "admin-engine/mixins/global";
 import DictsMixin from "../mixins/dicts";
 import List, {
@@ -13,7 +10,6 @@ import List, {
 import CategorySelect from "../components/category-select";
 import Uploader from "../components/uploader";
 import VideoUploader from "@/components/video-uploader";
-import Delete from "../components/delete";
 import BulkDelete from "../components/bulk-delete";
 import WxUserInfo from "../components/wx-user-info";
 import WxUserSelect from "../components/wx-user-select";
@@ -21,7 +17,6 @@ import Icon from "../components/icon";
 import Dropdown from "../components/dropdown";
 import ListImage from "../components/list-image";
 import Editor from "../components/editor";
-import ProductSelect from "../components/product-select";
 import IconSelect from "../components/icon-select";
 import EditableComp from "@/components/editable-module";
 import Comp from "@/components/comp";
@@ -31,42 +26,11 @@ import ListSelect from "@/components/list-select";
 import SchoolWxUserSelect from "@/components/school-wx-user-select";
 import DateRange from "@/components/date-range";
 
-// mobile components
-import Global from "@/mobile/components/global";
-import GlobalForm from "@/mobile/components/global-form";
-import Search from "@/mobile/components/search";
-import Brands from "@/mobile/components/brands";
-import BrandsForm from "@/mobile/components/brands-form";
-import Entries from "@/mobile/components/entries";
-import Notice from "@/mobile/components/notice";
-import Products from "@/mobile/components/products";
-import ProductsForm from "@/mobile/components/products-form";
-import Shortcuts from "@/mobile/components/shortcuts";
-import ShortcutsForm from "@/mobile/components/shortcuts-form";
-import Popup from "@/mobile/components/popup";
-import Title from "@/mobile/components/title";
-import Swiper from "@/mobile/components/swiper";
-import SearchForm from "@/mobile/components/search-form";
-import NoticeForm from "@/mobile/components/notice-form";
-import EntriesForm from "@/mobile/components/entries-form";
-import SwiperForm from "@/mobile/components/swiper-form";
-import RichText from "@/mobile/components/rich-text";
-import RichTextForm from "@/mobile/components/rich-text-form";
-import ImageLink from "@/mobile/components/image-link";
-import ImageLinkForm from "@/mobile/components/image-link-form";
-import LinkSelect from "@/components/link-select";
-import ConfirmButton from "@/components/confirm-button";
-import OuterProducts from "@/mobile/components/outer-products";
-import OuterProductsForm from "@/mobile/components/outer-products-form";
-import SchoolSelect from "@/components/school-select";
-
 export default {
   install(Vue) {
-    Vue.prototype.$wx = {};
     Vue.prototype.$time = time;
     Vue.prototype.$consts = consts;
     Vue.prototype.$helpers = helpers;
-    Vue.prototype.$auth = auth;
 
     Vue.filter("time", val => time.getTime(val));
     Vue.filter("date", val => time.getDate(val));
