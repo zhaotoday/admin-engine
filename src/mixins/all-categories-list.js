@@ -1,5 +1,5 @@
 import { Component, Vue } from "vue-property-decorator";
-import Model from "@/models/admin/categories";
+import Model from "../models/admin/categories";
 
 @Component
 export default class AllCategoriesListMixin extends Vue {

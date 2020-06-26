@@ -1,5 +1,5 @@
 import createStore from "view-ui-admin/src/utils/create-store";
-import Model from "@/models/admin/categories";
+import Model from "../../../models/admin/categories";
 
 export default createStore({
   Model,

@@ -20,7 +20,7 @@
 
 <script>
 import { Component, Vue } from "vue-property-decorator";
-import Model from "@/models/admin/wx-users";
+import Model from "../../models/admin/wx-users";
 
 @Component({
   props: {

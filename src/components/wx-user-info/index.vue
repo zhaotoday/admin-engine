@@ -6,7 +6,7 @@
 
 <script>
 import { Component, Vue, Watch } from "vue-property-decorator";
-import WxUsersModel from "@/models/admin/wx-users";
+import WxUsersModel from "../../models/admin/wx-users";
 
 @Component({
   props: {

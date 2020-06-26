@@ -60,16 +60,8 @@ export default class extends REST {
     { id, query = {}, body = {}, showLoading = false, showError = true }
   ) {
     this._getDateRange(query);
-    const WhereBlacklist = ["schools", "files", "wxUsers"];
-    const schoolId = auth.loggedIn() ? auth.get()["user"].school.id : 0;
-    const schoolWhere =
-      auth.loggedIn() && WhereBlacklist.includes(this.path)
-        ? {}
-        : { schoolId: { $eq: schoolId } };
 
-    query.where = this._toString({ ...schoolWhere, ...query.where });
-
-    body.schoolId = schoolId;
+    query.where = this._toString(query.where);
 
     if (query.include) {
       query.include = JSON.stringify(query.include);

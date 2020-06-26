@@ -19,7 +19,7 @@
 
 <script>
 import { Component, Vue, Watch } from "vue-property-decorator";
-import FilesModel from "@/models/admin/files";
+import FilesModel from "../../models/admin/files";
 
 const DefaultFormat = ["jpg", "jpeg", "png", "gif"];
 const DefaultMaxSize = 2048;

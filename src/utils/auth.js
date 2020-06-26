@@ -26,6 +26,6 @@ export default {
   },
 
   getHeaders() {
-    return { Authorization: this.get()["token"] };
+    return { Authorization: this.get()[TOKEN] };
   }
 };

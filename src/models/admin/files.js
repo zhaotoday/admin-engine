@@ -1,6 +1,6 @@
-import REST from "@/utils/rest";
+import REST from "../../utils/rest";
+import auth from "../../utils/auth";
 import consts from "@/utils/consts";
-import auth from "@/utils/auth";
 
 export default class extends REST {
   constructor() {

@@ -29,7 +29,7 @@
 
 <script>
 import { Component, Vue } from "vue-property-decorator";
-import Model from "@/models/admin/categories";
+import Model from "../../models/admin/categories";
 import arrayToTree from "array-to-tree";
 
 @Component({
