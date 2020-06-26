@@ -1,6 +1,6 @@
 {
   "name": "view-ui-admin",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "",
   "main": "index.js",
   "scripts": {},
@@ -12,6 +12,7 @@
     "core-js": "^3.6.5",
     "jt-editor": "^1.0.4",
     "jt-helpers": "0.0.8",
+    "lr-editor": "^1.0.1",
     "vod-js-sdk-v6": "^1.4.8",
     "vue-property-decorator": "^9.0.0",
     "xlsx": "^0.16.2"
