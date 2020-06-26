@@ -7,7 +7,7 @@
     ok-text="确认"
     cancel-text="取消"
   >
-    <Button>{{ buttonText }}</Button>
+    <Button :disabled="disabled">{{ buttonText }}</Button>
   </Poptip>
 </template>
 
@@ -16,6 +16,10 @@ import { Component, Vue } from "vue-property-decorator";
 
 @Component({
   props: {
+    disabled: {
+      type: Boolean,
+      default: false
+    },
     buttonText: {
       type: String,
       default: ""
