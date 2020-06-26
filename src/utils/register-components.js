@@ -28,7 +28,6 @@ export default () => {
   Vue.component("c-editor", Editor);
   Vue.component("c-icon", Icon);
   Vue.component("c-icon-select", IconSelect);
-  Vue.component("c-link-select", LinkSelect);
   Vue.component("c-list", List);
   Vue.component("c-list-header", ListHeader);
   Vue.component("c-list-operations", ListOperations);
