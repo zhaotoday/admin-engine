@@ -12,6 +12,19 @@ export default {
   getFileUrlById(id) {
     return `${consts.BaseUrl}/public/files/${id}`;
   },
+  getImageUrl({ id, width, height }) {
+    let sizeParams = "";
+
+    if (width && height) {
+      sizeParams = `?imageView2/1/w/${width}/h/${height}/q/100`;
+    } else if (width) {
+      sizeParams = `?imageView2/2/w/${width}/q/100`;
+    } else if (height) {
+      sizeParams = `?imageView2/2/h/${height}/q/100`;
+    }
+
+    return `${consts.CdnUrl}/${id}${sizeParams}`;
+  },
   getItemById(items, id) {
     return items && items.length
       ? items.find(item => +item.id === +id) || {}
@@ -21,5 +34,8 @@ export default {
     return items && items.length
       ? items.find(item => item[key] === val) || {}
       : {};
+  },
+  actionToStatus(statuses, action) {
+    return statuses.find(item => item.action === action)["value"];
   }
 };

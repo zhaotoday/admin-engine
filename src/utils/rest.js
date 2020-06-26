@@ -1,5 +1,7 @@
 import REST from "jt-rest";
 import ViewUI from "view-design";
+import auth from "@/utils/auth";
+import dayjs from "dayjs";
 
 export default class extends REST {
   _toString(obj) {
@@ -36,13 +38,38 @@ export default class extends REST {
     return JSON.stringify(ret);
   }
 
+  _getDateRange(query) {
+    if (query.where && query.where.dateRange && query.where.dateRange.$eq) {
+      const [date1 = "", date2 = ""] = query.where.dateRange.$eq;
+
+      query.where.createdAt = {};
+
+      if (date1) {
+        query.where.createdAt.$gt = dayjs(date1).startOf("day").$d;
+      }
+      if (date2) {
+        query.where.createdAt.$lt = dayjs(date2).endOf("day").$d;
+      }
+
+      delete query.where.dateRange;
+    }
+  }
+
   request(
     method = "GET",
     { id, query = {}, body = {}, showLoading = false, showError = true }
   ) {
-    if (query.where) {
-      query.where = this._toString(query.where);
-    }
+    this._getDateRange(query);
+    const WhereBlacklist = ["schools", "files", "wxUsers"];
+    const schoolId = auth.loggedIn() ? auth.get()["user"].school.id : 0;
+    const schoolWhere =
+      auth.loggedIn() && WhereBlacklist.includes(this.path)
+        ? {}
+        : { schoolId: { $eq: schoolId } };
+
+    query.where = this._toString({ ...schoolWhere, ...query.where });
+
+    body.schoolId = schoolId;
 
     if (query.include) {
       query.include = JSON.stringify(query.include);
@@ -58,7 +85,7 @@ export default class extends REST {
 
     showLoading && ViewUI.Spin.show();
 
-    return new Promise(resolve => {
+    return new Promise((resolve, reject) => {
       super
         .request(method, { id, query, body })
         .then(res => {
@@ -68,13 +95,19 @@ export default class extends REST {
         .catch(({ response: res }) => {
           showLoading && ViewUI.Spin.hide();
 
-          if (res.status === 500) {
-            showError && ViewUI.Message.error("服务器出错");
-          } else if (res.status === 401) {
+          if (res.status === 401) {
             ViewUI.Message.error("登入过期，请重新登入");
             window.location.href = "index.html#/logout";
           } else {
-            showError && ViewUI.Message.error(res.data.error.message);
+            if (showError) {
+              if (res.status === 500) {
+                ViewUI.Message.error("服务器出错");
+              } else {
+                ViewUI.Message.error(res.data.error.message);
+              }
+            } else {
+              reject(res.data.error);
+            }
           }
         });
     });
