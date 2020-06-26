@@ -15,7 +15,7 @@ import List, {
 } from "../components/list";
 import ListImage from "../components/list-image";
 import Uploader from "../components/uploader";
-import VideoUploader from "@/components/video-uploader";
+import VideoUploader from "../components/video-uploader";
 import WxUserInfo from "../components/wx-user-info";
 import WxUserSelect from "../components/wx-user-select";
 
