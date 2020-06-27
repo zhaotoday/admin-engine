@@ -36,7 +36,7 @@
 <script>
 import { Component, Vue, Watch } from "vue-property-decorator";
 import Model from "../../models/admin/videos";
-import helpers from "@/utils/helpers";
+import helpers from "../../utils/helpers";
 import TcVod from "vod-js-sdk-v6";
 
 const DefaultFormat = [
