@@ -35,13 +35,13 @@ export default {
       ? items.find(item => item[key] === val) || {}
       : {};
   },
-  actionToStatus(statuses, action) {
-    return statuses.find(item => item.action === action)["value"];
-  },
   formatNumber(number) {
     return parseFloat(number.toFixed(2));
   },
   toLowerCamelCase(str) {
     return str.replace(/-([a-z])/g, (all, letter) => letter.toUpperCase());
+  },
+  actionToStatus(statuses, action) {
+    return statuses.find(item => item.action === action)["value"];
   }
 };
