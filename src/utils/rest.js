@@ -70,6 +70,10 @@ export default class extends REST {
       query.order = JSON.stringify(query.order);
     }
 
+    if (query.attributes) {
+      query.attributes = JSON.stringify(query.attributes);
+    }
+
     if (method === "GET") {
       query._ = new Date().getTime();
     }

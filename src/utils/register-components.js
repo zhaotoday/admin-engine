@@ -15,7 +15,6 @@ import List, {
 } from "../components/list";
 import ListImage from "../components/list-image";
 import Uploader from "../components/uploader";
-import VideoUploader from "../components/video-uploader";
 import WxUserInfo from "../components/wx-user-info";
 import WxUserSelect from "../components/wx-user-select";
 
@@ -34,6 +33,5 @@ Vue.component("c-list-search", ListSearch);
 Vue.component("c-list-navigation", ListNavigation);
 Vue.component("c-list-image", ListImage);
 Vue.component("c-uploader", Uploader);
-Vue.component("c-video-uploader", VideoUploader);
 Vue.component("c-wx-user-info", WxUserInfo);
 Vue.component("c-wx-user-select", WxUserSelect);
