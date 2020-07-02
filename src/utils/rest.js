@@ -3,7 +3,7 @@ import ViewUI from "view-design";
 import dayjs from "dayjs";
 
 export default class extends REST {
-  _toString(obj) {
+  _toString(obj = {}) {
     let ret = {};
     let types = [];
 
