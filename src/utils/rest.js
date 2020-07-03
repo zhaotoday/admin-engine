@@ -7,6 +7,8 @@ export default class extends REST {
     let ret = {};
     let types = [];
 
+    delete obj.dateRange;
+
     Object.keys(obj).forEach(v => {
       types = Object.keys(obj[v]);
 
@@ -37,7 +39,7 @@ export default class extends REST {
     return JSON.stringify(ret);
   }
 
-  _getDateRange(query) {
+  _filter(query) {
     if (query.where && query.where.dateRange && query.where.dateRange.$eq) {
       const [date1 = "", date2 = ""] = query.where.dateRange.$eq;
 
@@ -49,8 +51,6 @@ export default class extends REST {
       if (date2) {
         query.where.createdAt.$lt = dayjs(date2).endOf("day").$d;
       }
-
-      delete query.where.dateRange;
     }
   }
 
@@ -58,7 +58,7 @@ export default class extends REST {
     method = "GET",
     { id, query = {}, body = {}, showLoading = false, showError = true }
   ) {
-    this._getDateRange(query);
+    this._filter(query);
 
     query.where = this._toString(query.where);
 
