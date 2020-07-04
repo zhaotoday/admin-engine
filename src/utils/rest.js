@@ -7,9 +7,9 @@ export default class extends REST {
     let ret = {};
     let types = [];
 
-    delete obj.dateRange;
+    const { dateRange, ...restObj } = obj;
 
-    Object.keys(obj).forEach(v => {
+    Object.keys(restObj).forEach(v => {
       types = Object.keys(obj[v]);
 
       if (types.length) {
