@@ -14,6 +14,7 @@ import List, {
   ListSearch
 } from "../components/list";
 import ListImage from "../components/list-image";
+import Map from "../components/map";
 import Uploader from "../components/uploader";
 import WxUserInfo from "../components/wx-user-info";
 import WxUserSelect from "../components/wx-user-select";
@@ -35,3 +36,4 @@ Vue.component("c-list-image", ListImage);
 Vue.component("c-uploader", Uploader);
 Vue.component("c-wx-user-info", WxUserInfo);
 Vue.component("c-wx-user-select", WxUserSelect);
+Vue.component("c-map", Map);
