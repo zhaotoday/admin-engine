@@ -17,21 +17,22 @@
 </template>
 
 <script>
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Prop, Vue } from "vue-property-decorator";
 
-@Component({
-  props: {
-    selectedItems: {
-      type: Array,
-      default: () => []
-    },
-    showConfirm: {
-      type: Boolean,
-      default: true
-    }
-  }
-})
+@Component
 export default class BulkDelete extends Vue {
+  @Prop({
+    type: Array,
+    default: () => []
+  })
+  selectedItems;
+
+  @Prop({
+    type: Boolean,
+    default: true
+  })
+  showConfirm;
+
   handleOk() {
     if (!this.selectedItems.length) {
       this.$Message.error("没有选中记录");

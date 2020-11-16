@@ -12,23 +12,26 @@
 </template>
 
 <script>
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Prop, Vue } from "vue-property-decorator";
 
-@Component({
-  props: {
-    disabled: {
-      type: Boolean,
-      default: false
-    },
-    buttonText: {
-      type: String,
-      default: ""
-    },
-    confirmText: {
-      type: String,
-      default: ""
-    }
-  }
-})
-export default class ConfirmButton extends Vue {}
+@Component
+export default class ConfirmButton extends Vue {
+  @Prop({
+    type: Boolean,
+    default: false
+  })
+  disabled;
+
+  @Prop({
+    type: String,
+    default: ""
+  })
+  buttonText;
+
+  @Prop({
+    type: String,
+    default: ""
+  })
+  confirmText;
+}
 </script>

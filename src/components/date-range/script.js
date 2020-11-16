@@ -1,14 +1,13 @@
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Prop, Vue } from "vue-property-decorator";
 
-@Component({
-  props: {
-    value: {
-      type: Array,
-      default: () => []
-    }
-  }
-})
+@Component
 export default class DateRange extends Vue {
+  @Prop({
+    type: Array,
+    default: () => []
+  })
+  value;
+
   options = {
     shortcuts: [
       {

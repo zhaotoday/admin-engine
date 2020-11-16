@@ -28,35 +28,42 @@
 </template>
 
 <script>
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Prop, Vue } from "vue-property-decorator";
 import Model from "../../models/admin/categories";
 import arrayToTree from "array-to-tree";
 
-@Component({
-  props: {
-    placeholder: {
-      type: String,
-      default: "请选择分类"
-    },
-    alias: {
-      type: String,
-      default: ""
-    },
-    multiple: {
-      type: Boolean,
-      default: false
-    },
-    selectParent: {
-      type: Boolean,
-      default: false
-    },
-    value: {
-      type: [Array, String, Number],
-      default: ""
-    }
-  }
-})
+@Component
 export default class CategorySelect extends Vue {
+  @Prop({
+    type: String,
+    default: "请选择分类"
+  })
+  placeholder;
+
+  @Prop({
+    type: String,
+    default: ""
+  })
+  alias;
+
+  @Prop({
+    type: Boolean,
+    default: false
+  })
+  multiple;
+
+  @Prop({
+    type: Boolean,
+    default: false
+  })
+  selectParent;
+
+  @Prop({
+    type: [Array, String, Number],
+    default: ""
+  })
+  value;
+
   items = [];
 
   async created() {

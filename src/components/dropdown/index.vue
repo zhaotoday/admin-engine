@@ -17,33 +17,40 @@
 </template>
 
 <script>
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Prop, Vue } from "vue-property-decorator";
 
-@Component({
-  props: {
-    width: {
-      type: Number,
-      default: 70
-    },
-    title: {
-      type: String,
-      default: ""
-    },
-    selected: {
-      type: Object,
-      default: () => {}
-    },
-    disabled: {
-      type: Boolean,
-      default: false
-    },
-    options: {
-      type: Array,
-      default: () => []
-    }
-  }
-})
+@Component
 export default class extends Vue {
+  @Prop({
+    type: Number,
+    default: 70
+  })
+  width;
+
+  @Prop({
+    type: String,
+    default: ""
+  })
+  title;
+
+  @Prop({
+    type: Object,
+    default: () => {}
+  })
+  selected;
+
+  @Prop({
+    type: Boolean,
+    default: false
+  })
+  disabled;
+
+  @Prop({
+    type: Array,
+    default: () => []
+  })
+  options;
+
   handleClickItem(name) {
     this.$emit("click", name);
   }
