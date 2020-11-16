@@ -31,52 +31,59 @@
 </template>
 
 <script>
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Prop, Vue } from "vue-property-decorator";
 import consts from "@/utils/consts";
 
-@Component({
-  props: {
-    columns: {
-      type: Array,
-      default() {
-        return [];
-      }
-    },
-    data: {
-      type: Array,
-      default() {
-        return [];
-      }
-    },
-    total: {
-      type: Number,
-      default: 1
-    },
-    pageSize: {
-      type: Number,
-      default: consts.PageSize
-    },
-    pageCurrent: {
-      type: Number,
-      default: 1
-    },
-    searchWhere: {
-      type: Object,
-      default() {
-        return {};
-      }
-    },
-    showPage: {
-      type: Boolean,
-      default: true
-    },
-    statistic: {
-      type: String,
-      default: ""
-    }
-  }
-})
+@Component
 export default class List extends Vue {
+  @Prop({
+    type: Array,
+    default: () => []
+  })
+  columns;
+
+  @Prop({
+    type: Array,
+    default: () => []
+  })
+  data;
+
+  @Prop({
+    type: Number,
+    default: 1
+  })
+  total;
+
+  @Prop({
+    type: Number,
+    default: consts.PageSize
+  })
+  pageSize;
+
+  @Prop({
+    type: Number,
+    default: 1
+  })
+  pageCurrent;
+
+  @Prop({
+    type: Object,
+    default: () => ({})
+  })
+  searchWhere;
+
+  @Prop({
+    type: Boolean,
+    default: true
+  })
+  showPage;
+
+  @Prop({
+    type: String,
+    default: ""
+  })
+  statistic;
+
   handleSelectionChange(selection) {
     this.$emit("selection-change", selection);
   }

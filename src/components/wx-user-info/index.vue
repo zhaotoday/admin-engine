@@ -5,18 +5,17 @@
 </template>
 
 <script>
-import { Component, Vue, Watch } from "vue-property-decorator";
+import { Component, Prop, Vue, Watch } from "vue-property-decorator";
 import WxUsersModel from "../../models/admin/wx-users";
 
-@Component({
-  props: {
-    pk: {
-      type: Number,
-      default: 0
-    }
-  }
-})
+@Component
 export default class WxUserInfo extends Vue {
+  @Prop({
+    type: Number,
+    default: 0
+  })
+  pk;
+
   detail = {};
 
   @Watch("pk", { deep: true, immediate: true })

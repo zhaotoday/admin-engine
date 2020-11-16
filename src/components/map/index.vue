@@ -5,19 +5,9 @@
 </template>
 
 <script>
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Prop, Vue } from "vue-property-decorator";
 
-@Component({
-  props: {
-    latLng: {
-      type: Object,
-      default: () => ({
-        lat: 25.86391945270875,
-        lng: 118.93867492675781
-      })
-    }
-  }
-})
+@Component
 export default class Map extends Vue {
   modal = false;
 

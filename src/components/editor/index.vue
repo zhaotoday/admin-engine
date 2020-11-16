@@ -6,18 +6,17 @@
 </template>
 
 <script>
-import { Component, Vue, Watch } from "vue-property-decorator";
+import { Component, Prop, Vue, Watch } from "vue-property-decorator";
 import WangEditor from "lr-editor";
 
-@Component({
-  props: {
-    html: {
-      type: String,
-      default: ""
-    }
-  }
-})
+@Component
 export default class Editor extends Vue {
+  @Prop({
+    type: String,
+    default: ""
+  })
+  html;
+
   @Watch("html")
   onHtmlChange(newVal, oldVal) {
     if (newVal && !oldVal) {

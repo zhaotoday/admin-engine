@@ -21,21 +21,22 @@
 </template>
 
 <script>
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Prop, Vue } from "vue-property-decorator";
 
-@Component({
-  props: {
-    placeholder: {
-      type: String,
-      default: "请选择图标"
-    },
-    value: {
-      type: [Array, String, Number],
-      default: ""
-    }
-  }
-})
+@Component
 export default class IconSelect extends Vue {
+  @Prop({
+    type: String,
+    default: "请选择图标"
+  })
+  placeholder;
+
+  @Prop({
+    type: [Array, String, Number],
+    default: ""
+  })
+  value;
+
   change(value) {
     this.$emit("change", value);
   }

@@ -3,17 +3,16 @@
 </template>
 
 <script>
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Prop, Vue } from "vue-property-decorator";
 
-@Component({
-  props: {
-    type: {
-      type: String,
-      default: ""
-    }
-  }
-})
-export default class Icon extends Vue {}
+@Component
+export default class Icon extends Vue {
+  @Prop({
+    type: String,
+    default: ""
+  })
+  type;
+}
 </script>
 
 <style lang="scss" src="./style.scss"></style>

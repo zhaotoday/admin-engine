@@ -18,39 +18,44 @@
 </template>
 
 <script>
-import { Component, Vue, Watch } from "vue-property-decorator";
+import { Component, Prop, Vue, Watch } from "vue-property-decorator";
 import FilesModel from "../../models/admin/files";
 
 const DefaultFormat = ["jpg", "jpeg", "png", "gif"];
 const DefaultMaxSize = 2048;
 
-@Component({
-  props: {
-    multiple: {
-      type: Boolean,
-      default: false
-    },
-    format: {
-      type: Array,
-      default() {
-        return DefaultFormat;
-      }
-    },
-    placeholder: {
-      type: String,
-      default: "请上传文件"
-    },
-    maxSize: {
-      type: Number,
-      default: DefaultMaxSize
-    },
-    defaultFileIds: {
-      type: [Array, String, Number],
-      default: () => []
-    }
-  }
-})
+@Component
 export default class Uploader extends Vue {
+  @Prop({
+    type: Boolean,
+    default: false
+  })
+  multiple;
+
+  @Prop({
+    type: Array,
+    default: () => DefaultFormat
+  })
+  format;
+
+  @Prop({
+    type: String,
+    default: "请上传文件"
+  })
+  placeholder;
+
+  @Prop({
+    type: Number,
+    default: DefaultMaxSize
+  })
+  maxSize;
+
+  @Prop({
+    type: [Array, String, Number],
+    default: () => []
+  })
+  defaultFileIds;
+
   defaultFileList = [];
 
   @Watch("defaultFileIds", { immediate: true })

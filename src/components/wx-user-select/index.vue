@@ -19,26 +19,29 @@
 </template>
 
 <script>
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Prop, Vue } from "vue-property-decorator";
 import Model from "../../models/admin/wx-users";
 
-@Component({
-  props: {
-    placeholder: {
-      type: String,
-      default: "请选择微信用户"
-    },
-    value: {
-      type: [String, Number],
-      default: 0
-    },
-    multiple: {
-      type: Boolean,
-      default: false
-    }
-  }
-})
+@Component
 export default class WxUserSelect extends Vue {
+  @Prop({
+    type: String,
+    default: "请选择微信用户"
+  })
+  placeholder;
+
+  @Prop({
+    type: [String, Number],
+    default: 0
+  })
+  value;
+
+  @Prop({
+    type: Boolean,
+    default: false
+  })
+  multiple;
+
   list = {
     items: []
   };
