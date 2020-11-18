@@ -1,5 +1,5 @@
 <template>
-  <Dropdown @on-click="handleClickItem">
+  <Dropdown @on-click="click">
     <Button :disabled="disabled" :style="{ width: `${width}px` }">
       {{ title }}
       <Icon type="ios-arrow-down"></Icon>
@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import { Component, Prop, Vue } from "vue-property-decorator";
+import { Component, Emit, Prop, Vue } from "vue-property-decorator";
 
 @Component
 export default class extends Vue {
@@ -51,8 +51,9 @@ export default class extends Vue {
   })
   options;
 
-  handleClickItem(name) {
-    this.$emit("click", name);
+  @Emit()
+  click(name) {
+    return name;
   }
 }
 </script>

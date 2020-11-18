@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { Component, Prop, Vue } from "vue-property-decorator";
+import { Component, Emit, Vue } from "vue-property-decorator";
 
 @Component
 export default class Map extends Vue {
@@ -60,8 +60,9 @@ export default class Map extends Vue {
     });
   }
 
+  @Emit()
   select() {
-    this.$emit("select", this.latLng);
+    return this.latLng;
   }
 }
 </script>

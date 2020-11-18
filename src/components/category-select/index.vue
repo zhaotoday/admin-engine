@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import { Component, Prop, Vue } from "vue-property-decorator";
+import { Component, Emit, Prop, Vue } from "vue-property-decorator";
 import Model from "../../models/admin/categories";
 import arrayToTree from "array-to-tree";
 
@@ -78,8 +78,9 @@ export default class CategorySelect extends Vue {
     });
   }
 
+  @Emit()
   change(value) {
-    this.$emit("change", value);
+    return value;
   }
 }
 </script>

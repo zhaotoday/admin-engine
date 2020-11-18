@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import { Component, Prop, Vue } from "vue-property-decorator";
+import { Component, Emit, Prop, Vue } from "vue-property-decorator";
 
 @Component
 export default class IconSelect extends Vue {
@@ -37,8 +37,9 @@ export default class IconSelect extends Vue {
   })
   value;
 
+  @Emit()
   change(value) {
-    this.$emit("change", value);
+    return value;
   }
 }
 </script>
