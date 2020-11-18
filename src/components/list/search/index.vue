@@ -4,11 +4,6 @@
   </div>
 </template>
 
-<script>
-import { Component, Vue } from "vue-property-decorator";
-
-@Component
-export default class ListSearch extends Vue {}
-</script>
+<script src="./script.js"></script>
 
 <style lang="scss" src="./style.scss"></style>
